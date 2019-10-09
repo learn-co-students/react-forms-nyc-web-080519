@@ -4,21 +4,24 @@ import DisplayData from './DisplayData'
  
 class ParentComponent extends React.Component {
   state = {
-    firstName: "",
-    lastName: "",
+    firstName: "John",
+    lastName: "Mac",
+    submittedData: []
   }
 
 
- handleFirstNameChange = event => {
+  handleChange = event => {
     this.setState({
-      firstName: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
-  handleLastNameChange = event => {
-    this.setState({
-      lastName: event.target.value
-    })
+    handleSubmit = event => {
+    event.preventDefault()
+    console.log("handleSubmit state", this.state)
+    let formData = {firstname: this.state.firstName, lastName: this.state.lastName }
+    let dataArray = this.state.submittedData.concat(formData)
+    this.setState({ submittedData: dataArray})
   }
 
     render() {
@@ -26,8 +29,8 @@ class ParentComponent extends React.Component {
         <div>
           <Form 
             formData={this.state}
-            handleFirstNameChange={this.handleFirstNameChange}
-            handleLastNameChange={this.handleLastNameChange}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
           />
           <DisplayData formData={this.state} />
         </div>

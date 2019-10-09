@@ -14,13 +14,7 @@ import React from 'react';
 //     this.setState({ checkbox: !event.target.checked })
 //   }
 
-//   handleSubmit = event => {
-//     event.preventDefault()
-//     console.log("handleSubmit state", this.state)
-//     let formData = {firstname: this.state.firstName, lastName: this.state.lastName }
-//     let dataArray = this.state.submittedData.concat(formData)
-//     this.setState({ submittedData: dataArray})
-//   }
+
 //   getInitialState =  () => {
 //     return {
 //       checkbox: false
@@ -44,15 +38,15 @@ import React from 'react';
     render() {
       return (
         <div>
-          <form>
+          <form onSubmit={event => this.props.handleSubmit(event)}>
             <input
-              type="text"
-              onChange={event => this.props.handleFirstNameChange(event)}
+              type="text" name="firstName"
+              onChange={event => this.props.handleChange(event)}
               value={this.props.formData.firstName}
             />
             <input
-              type="text"
-              onChange={event => this.props.handleLastNameChange(event)}
+              type="text" name="lastName"
+              onChange={event => this.props.handleChange(event)}
               value={this.props.formData.lastName}
             />
             <button type="submit" >Submit</button>
