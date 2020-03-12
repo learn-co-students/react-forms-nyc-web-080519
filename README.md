@@ -301,7 +301,7 @@ Each of these attributes can be set based on a state value. Each also has an
 `onChange` event listener, allowing us to update state when a user interacts
 with a form.
 
-## Uncontrolled vs Controlled Components
+## Uncontrolled vs Controlled Components.
 
 ![Kpop](https://media.giphy.com/media/QcnfLD17Ebt28/giphy.gif)
 
